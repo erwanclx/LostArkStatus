@@ -8,7 +8,7 @@
 [![](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/erwanclx)
 
 Lost Ark Bot status est un bot qui permet de savoir en temps réel le statut des serveurs de jeux Lost Ark.
-Le bot est basé sur du scraaping sur le site https://www.playlostark.com/fr-fr/support/server-status
+Le bot est basé sur du scrapping sur le site https://www.playlostark.com/fr-fr/support/server-status
 
 ## Commandes
 
