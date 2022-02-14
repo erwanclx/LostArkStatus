@@ -87,6 +87,10 @@ def serveur_scrape():
 
     URL = "http://playlostark.com/fr-fr/support/server-status"
     page = requests.get(URL)
+    page
+    page.status_code
+    200
+    page.content
 
     soup = BeautifulSoup(page.content, "html.parser")
     zones = soup.find_all("div", class_=zone_class)
@@ -102,7 +106,7 @@ def serveur_scrape():
             server_obj = {}
             if ("ags-ServerStatus-content-responses-response-server-status--good") in status.attrs.get("class"):
                 server_status = "Bien"
-            if ("ags-ServerStatus-content-responses-response-server-status--down") in status.attrs.get("class"):
+            if ("ags-ServerStatus-content-responses-response-server-status--busy") in status.attrs.get("class"):
                 server_status = "Occupé"
             if ("ags-ServerStatus-content-responses-response-server-status--full") in status.attrs.get("class"):
                 server_status = "Plein"
