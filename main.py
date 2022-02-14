@@ -130,5 +130,7 @@ async def help(ctx):
 
     embed.set_thumbnail(url="https://kgo.googleusercontent.com/profile_vrt_raw_bytes_1587514212_1078.jpg")
     await ctx.send(embed=embed)
-
+@bot.event
+async def on_ready():
+    await bot.change_presence(activity=discord.Streaming(name=".help to see commands", url='https://github.com/erwanclx'))
 bot.run('OTQyNDA4NDk3NTk1ODEzOTU4.YgkETg.CqeM7QNefBE4Ing3Hgqji-J620g')
