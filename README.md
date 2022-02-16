@@ -22,4 +22,6 @@ Le bot est basé sur du scrapping sur le site https://www.playlostark.com/fr-fr/
 - [x] Listes des zones
 - [x] Listes des serveurs par zone
 - [ ] Listes de tout les serveurs
+- [ ] Rafraichissement automatique
+- [ ] Amélioration du design de la réponse du bot 
 
