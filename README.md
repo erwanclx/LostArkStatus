@@ -10,6 +10,9 @@
 Lost Ark Bot status est un bot qui permet de savoir en temps réel le statut des serveurs de jeux Lost Ark.
 Le bot est basé sur du scrapping sur le site https://www.playlostark.com/fr-fr/support/server-status
 
+
+Lien top.gg : https://top.gg/bot/942408497595813958
+
 ## Commandes
 
 - **.help** : Liste toute les commandes
