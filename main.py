@@ -5,7 +5,7 @@ from discord.ext import commands
 
 from datetime import datetime
 
-zones_array = ['WEST NORTH AMERICA', 'EAST NORTH AMERICA', 'EUROPE', 'SOUTH AMERICA']
+zones_array = ['NORTH AMERICA WEST', 'NORTH AMERICA EAST', 'EUROPE WEST', 'EUROPE CENTRAL', 'SOUTH AMERICA']
 
 zones_arr = {}
 ts = 0
@@ -116,7 +116,9 @@ def serveur_scrape():
             server_obj['status'] = server_status
             servers_arr.append(server_obj)
         zones_arr[(zones_array[int(zone.attrs.get('data-index'))])] = servers_arr
-
+        print(zones_arr)
+    if zones_arr == "":
+        zones_arr = []
     ts = datetime.timestamp(datetime.now())
     return zones_arr
 
@@ -133,4 +135,4 @@ async def help(ctx):
 @bot.event
 async def on_ready():
     await bot.change_presence(activity=discord.Streaming(name=".help to see commands", url='https://github.com/erwanclx'))
-bot.run('OTQyNDA4NDk3NTk1ODEzOTU4.YgkETg.CqeM7QNefBE4Ing3Hgqji-J620g')
+bot.run('')
