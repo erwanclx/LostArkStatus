@@ -53,7 +53,7 @@ Link top.gg : https://top.gg/bot/942408497595813958
 - **.zone [valeur]** : Show the state of the servers of a zone
 - **.serveur [valeur]** : Show server state
 
-## To-Do Liste
+## To-Do List
 - [x] HELP embed
 - [x] Zones list
 - [x] Servers by zone list
