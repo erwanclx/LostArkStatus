@@ -50,8 +50,8 @@ Link top.gg : https://top.gg/bot/942408497595813958
 
 - **.help** : Show command list
 - **.zones** : Show all the zones
-- **.zone [valeur]** : Show the state of the servers of a zone
-- **.serveur [valeur]** : Show server state
+- **.zone [value]** : Show the state of the servers of a zone
+- **.server [value]** : Show server state
 
 ## To-Do List
 - [x] HELP embed
