@@ -28,3 +28,35 @@ Lien top.gg : https://top.gg/bot/942408497595813958
 - [ ] Rafraichissement automatique
 - [ ] Amélioration du design de la réponse du bot 
 
+-------------
+
+# Lost Ark Status
+## _By Erwan C._
+
+[![](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/api/oauth2/authorize?client_id=942408497595813958&permissions=2048&scope=bot)
+
+![](http://ForTheBadge.com/images/badges/made-with-python.svg)
+
+[![](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/erwanclx)
+
+Lost Ark Bot status is a bot which allow to know the server's status of Lost Ark game.
+The bot works with scrapping on https://www.playlostark.com/fr-fr/support/server-status
+
+
+Link top.gg : https://top.gg/bot/942408497595813958
+
+## Commands
+
+- **.help** : Show command list
+- **.zones** : Show all the zones
+- **.zone [valeur]** : Show the state of the servers of a zone
+- **.serveur [valeur]** : Show server state
+
+## To-Do Liste
+- [x] HELP embed
+- [x] Zones list
+- [x] Servers by zone list
+- [ ] List all servers
+- [ ] Auto refresh
+- [ ] Improve design answer
+
