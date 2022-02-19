@@ -9,7 +9,6 @@ zones_array = ['NORTH AMERICA WEST', 'NORTH AMERICA EAST', 'EUROPE CENTRAL', 'SO
 
 zones_arr = {}
 ts = 0
-
 bot = commands.Bot(command_prefix='.')
 bot.remove_command('help')
 status = dict(
