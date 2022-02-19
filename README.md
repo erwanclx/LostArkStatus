@@ -59,5 +59,6 @@ Link top.gg : https://top.gg/bot/942408497595813958
 - [x] Servers by zone list
 - [ ] List all servers
 - [ ] Auto refresh
+- [ ] Better design
 - [ ] Choose lang
 
