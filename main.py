@@ -5,7 +5,7 @@ from discord.ext import commands
 
 from datetime import datetime
 
-zones_array = ['NORTH AMERICA WEST', 'NORTH AMERICA EAST', 'EUROPE WEST', 'EUROPE CENTRAL', 'SOUTH AMERICA']
+zones_array = ['NORTH AMERICA WEST', 'NORTH AMERICA EAST', 'EUROPE CENTRAL', 'SOUTH AMERICA', 'EUROPE WEST']
 
 zones_arr = {}
 ts = 0
@@ -13,10 +13,10 @@ ts = 0
 bot = commands.Bot(command_prefix='.')
 bot.remove_command('help')
 status = dict(
-  Bien = "✅",
-  Occupé = "❌",
+  Good = "✅",
+  Busy = "❌",
   Maintenance = "⚠️",
-  Plein = "⛔")
+  Full = "⛔")
 
 
 async def printall(ctx, text):
@@ -47,7 +47,7 @@ async def zones(ctx):
     await printall(ctx, text)
 
 @bot.command()
-async def serveur(ctx, *, entry):
+async def server(ctx, *, entry):
     temp_arr = serveur_scrape()
     temp_arr = [[x for x in v if x['name'].upper() == entry.upper()] for v in temp_arr.values()]
     temp_arr = [x for x in temp_arr if x]
@@ -105,34 +105,33 @@ def serveur_scrape():
             server_status = ""
             server_obj = {}
             if ("ags-ServerStatus-content-responses-response-server-status--good") in status.attrs.get("class"):
-                server_status = "Bien"
+                server_status = "Good"
             if ("ags-ServerStatus-content-responses-response-server-status--busy") in status.attrs.get("class"):
-                server_status = "Occupé"
+                server_status = "Busy"
             if ("ags-ServerStatus-content-responses-response-server-status--full") in status.attrs.get("class"):
-                server_status = "Plein"
+                server_status = "Full"
             if (("ags-ServerStatus-content-responses-response-server-status--maintenance") in status.attrs.get("class")):
                 server_status = "Maintenance"
             server_obj['name'] = name.text.replace("\n", "").replace("\r", "").replace(" ", "")
             server_obj['status'] = server_status
             servers_arr.append(server_obj)
         zones_arr[(zones_array[int(zone.attrs.get('data-index'))])] = servers_arr
-        print(zones_arr)
-    if zones_arr == "":
-        zones_arr = []
     ts = datetime.timestamp(datetime.now())
     return zones_arr
 
 @bot.command()
 async def help(ctx):
     embed = discord.Embed(title="Listes des commandes", description="", color=15277667)
-    embed.add_field(name=".help", value="Voir la liste de toutes les commandes", inline=True)
-    embed.add_field(name=".zones", value="Montres la liste de toutes les zones", inline=True)
-    embed.add_field(name=".zone [valeur]", value="Montres la liste des serveurs de la zone indiquée avec leur état", inline=True)
-    embed.add_field(name=".serveur [valeur]", value="Montres l'état du serveur", inline=True)
+    embed.add_field(name=".help", value="Show command lists", inline=True)
+    embed.add_field(name=".zones", value="List all the zones", inline=True)
+    embed.add_field(name=".zone [zonename]", value="List all the servers and them status of a zone", inline=True)
+    embed.add_field(name=".server [servername]", value="Show server state", inline=True)
+    embed.add_field(name='Bot Server :', value='https://discord.gg/An6YSvsBrx')
+    embed.add_field(name="Servers counter :", vaclue=(str(len(bot.guilds))) + " servers.")
 
     embed.set_thumbnail(url="https://kgo.googleusercontent.com/profile_vrt_raw_bytes_1587514212_1078.jpg")
     await ctx.send(embed=embed)
 @bot.event
 async def on_ready():
     await bot.change_presence(activity=discord.Streaming(name=".help to see commands", url='https://github.com/erwanclx'))
-bot.run('')
+bot.run('OTQyNDA4NDk3NTk1ODEzOTU4.YgkETg.Rr79qiYvW_i0KVb_FWm1dbhWlU4')
