@@ -133,4 +133,4 @@ async def help(ctx):
 @bot.event
 async def on_ready():
     await bot.change_presence(activity=discord.Streaming(name=".help to see commands", url='https://github.com/erwanclx'))
-bot.run('OTQyNDA4NDk3NTk1ODEzOTU4.YgkETg.Rr79qiYvW_i0KVb_FWm1dbhWlU4')
+bot.run('')
