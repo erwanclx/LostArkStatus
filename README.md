@@ -25,7 +25,7 @@ Lien top.gg : https://top.gg/bot/942408497595813958
 - [x] Listes des zones
 - [x] Listes des serveurs par zone
 - [ ] Listes de tout les serveurs
-- [ ] Rafraichissement automatique
+- [x] Rafraichissement automatique
 - [ ] Amélioration du design de la réponse du bot 
 - [ ] Choix de langue
 
@@ -58,7 +58,7 @@ Link top.gg : https://top.gg/bot/942408497595813958
 - [x] Zones list
 - [x] Servers by zone list
 - [ ] List all servers
-- [ ] Auto refresh
+- [x] Auto refresh
 - [ ] Better design
 - [ ] Choose lang
 
