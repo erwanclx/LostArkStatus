@@ -202,7 +202,6 @@ async def help(ctx):
     embed.add_field(name=".zone [value]", value="Show the state of the servers of a zone", inline=True)
     embed.add_field(name=".server [value]", value="Show server state", inline=True)
     embed.add_field(name="Server counter :", value=(str(len(bot.guilds))) + " servers.")
-
     embed.set_thumbnail(url="https://kgo.googleusercontent.com/profile_vrt_raw_bytes_1587514212_1078.jpg")
     await ctx.send(embed=embed)
 
