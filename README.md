@@ -26,8 +26,9 @@ Lien top.gg : https://top.gg/bot/942408497595813958
 - [x] Listes des serveurs par zone
 - [ ] Listes de tout les serveurs
 - [x] Rafraichissement automatique
-- [ ] Amélioration du design de la réponse du bot 
+- [x] Amélioration du design de la réponse du bot 
 - [ ] Choix de langue
+- [ ] Tri alphabétique 
 
 -------------
 
@@ -59,6 +60,7 @@ Link top.gg : https://top.gg/bot/942408497595813958
 - [x] Servers by zone list
 - [ ] List all servers
 - [x] Auto refresh
-- [ ] Better design
+- [x] Better design
 - [ ] Choose lang
+- [ ] Enumerations by alphabetical order
 
