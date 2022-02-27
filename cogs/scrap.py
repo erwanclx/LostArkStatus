@@ -65,7 +65,7 @@ class scrape_loop(commands.Cog):
         hour = str(datetime.now().hour)
         minute = datetime.now().minute
         if minute < 10:
-            minute = "0", str(minute)
+            minute = "0" + str(minute)
         timer = hour + "h" + str(minute)
         self.bot.timer = timer
         self.bot.zones_arr = zones_arr
