@@ -72,21 +72,25 @@ async def zone(ctx, *, entry):
     if text['Good'] == []:
         text['Good'] = "No server in this status"
     else:
+        text['Good'].sort()
         text['Good'] = '\n'.join(text['Good'])
 
     if text['Full'] == []:
         text['Full'] = "No server in this status"
     else:
+        text['Full'].sort()
         text['Full'] = '\n'.join(text['Full'])
 
     if text['Busy'] == []:
         text['Busy'] = "No server in this status"
     else:
+        text['Busy'].sort()
         text['Busy'] = '\n'.join(text['Busy'])
 
     if text['Maintenance'] == []:
         text['Maintenance'] = "No server in this status"
     else:
+        text['Maintenance'].sort()
         text['Maintenance'] = '\n'.join(text['Maintenance'])
 
     if bot.timer == "":
