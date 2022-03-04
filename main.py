@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 import os
 
-zones_array = ['NORTH AMERICA WEST', 'NORTH AMERICA EAST', 'EUROPE CENTRAL', 'SOUTH AMERICA', 'EUROPE WEST']
+zones_array = ['NORTH AMERICA WEST', 'NORTH AMERICA EAST', 'EUROPE CENTRAL', 'EUROPE WEST', 'SOUTH AMERICA']
 ts = 0
 bot = commands.Bot(command_prefix='.')
 bot.remove_command('help')
@@ -27,7 +27,7 @@ async def zones(ctx):
         embed = discord.Embed(color=15277667)
         embed.add_field(name="All zones available :", value=text, inline=True)
         embed.set_thumbnail(url="https://kgo.googleusercontent.com/profile_vrt_raw_bytes_1587514212_1078.jpg")
-        embed.set_footer(text="Last update : " + bot.timer)
+        embed.set_footer(text="Zone status : " + bot.timer + ' (UTC)')
         await ctx.send(embed=embed)
 
 @bot.command()
@@ -49,7 +49,7 @@ async def server(ctx, *, entry):
         embed = discord.Embed(title=entry + " :", color=15277667)
         embed.add_field(name="Server status :", value=text, inline=True)
         embed.set_thumbnail(url="https://kgo.googleusercontent.com/profile_vrt_raw_bytes_1587514212_1078.jpg")
-        embed.set_footer(text="Last update : " + bot.timer)
+        embed.set_footer(text="Zone status : " + bot.timer + ' (UTC)')
         await ctx.send(embed=embed)
 
 @bot.command()
@@ -62,13 +62,81 @@ async def zone(ctx, *, entry):
         Maintenance=[],
         Busy=[]
     )
+
     if entry in arr.keys():
         for server in arr[entry]:
             servers_status[server['status']].append(server['name'])
+            text = servers_status
+        if text['Good'] == []:
+            text['Good'] = "No server in this status"
+        else:
+            text['Good'].sort()
+            text['Good'] = '\n'.join(text['Good'])
+
+        if text['Full'] == []:
+            text['Full'] = "No server in this status"
+        else:
+            text['Full'].sort()
+            text['Full'] = '\n'.join(text['Full'])
+
+        if text['Busy'] == []:
+            text['Busy'] = "No server in this status"
+        else:
+            text['Busy'].sort()
+            text['Busy'] = '\n'.join(text['Busy'])
+
+        if text['Maintenance'] == []:
+            text['Maintenance'] = "No server in this status"
+        else:
+            text['Maintenance'].sort()
+            text['Maintenance'] = '\n'.join(text['Maintenance'])
+        if bot.timer == "":
+            embed = discord.Embed(title=entry + " :", color=15277667)
+            embed.add_field(name="Good ✅", value=text['Good'], inline=True)
+            embed.add_field(name="Full ❌", value=text['Full'], inline=True)
+            embed.add_field(name="Busy ⛔", value=text['Busy'], inline=True)
+            embed.add_field(name="Maintenance ⚠️", value=text['Maintenance'], inline=True)
+            embed.set_thumbnail(url="https://kgo.googleusercontent.com/profile_vrt_raw_bytes_1587514212_1078.jpg")
+            await ctx.send(embed=embed)
+        else:
+            embed = discord.Embed(title=entry + " :", color=15277667)
+            embed.add_field(name="Good ✅", value=text['Good'], inline=True)
+            embed.add_field(name="Full ❌", value=text['Full'], inline=True)
+            embed.add_field(name="Busy ⛔", value=text['Busy'], inline=True)
+            embed.add_field(name="Maintenance ⚠️", value=text['Maintenance'], inline=True)
+            embed.set_footer(text="Last update : " + bot.timer + ' (UTC)')
+            embed.set_thumbnail(url="https://kgo.googleusercontent.com/profile_vrt_raw_bytes_1587514212_1078.jpg")
+            await ctx.send(embed=embed)
     else:
-        "No zone find"
+        if bot.timer == "":
+            embed = discord.Embed(title=entry + " :", color=15277667)
+            embed.add_field(name="Zone status :", value='No zone find', inline=True)
+            embed.set_thumbnail(url="https://kgo.googleusercontent.com/profile_vrt_raw_bytes_1587514212_1078.jpg")
+            await ctx.send(embed=embed)
+        else:
+            embed = discord.Embed(title=entry + " :", color=15277667)
+            embed.add_field(name="\u200b", value='No zone find', inline=True)
+            embed.set_footer(text="Zone status : " + bot.timer + ' (UTC)')
+            embed.set_thumbnail(url="https://kgo.googleusercontent.com/profile_vrt_raw_bytes_1587514212_1078.jpg")
+            await ctx.send(embed=embed)
+
+
+@bot.command()
+async def all(ctx):
+    arr = bot.zones_arr
+    servers_status = dict(
+        Good=[],
+        Full=[],
+        Maintenance=[],
+        Busy=[]
+    )
+    print(arr)
+    for zone in zones_array:
+        for server in arr[zone]:
+            servers_status[server['status']].append(server['name'])
 
     text = servers_status
+
     if text['Good'] == []:
         text['Good'] = "No server in this status"
     else:
@@ -94,7 +162,7 @@ async def zone(ctx, *, entry):
         text['Maintenance'] = '\n'.join(text['Maintenance'])
 
     if bot.timer == "":
-        embed = discord.Embed(title=entry + " :", color=15277667)
+        embed = discord.Embed(title="All" + " :", color=15277667)
         embed.add_field(name="Good ✅", value=text['Good'], inline=True)
         embed.add_field(name="Full ❌", value=text['Full'], inline=True)
         embed.add_field(name="Busy ⛔", value=text['Busy'], inline=True)
@@ -102,22 +170,24 @@ async def zone(ctx, *, entry):
         embed.set_thumbnail(url="https://kgo.googleusercontent.com/profile_vrt_raw_bytes_1587514212_1078.jpg")
         await ctx.send(embed=embed)
     else:
-        embed = discord.Embed(title=entry + " :", color=15277667)
+        embed = discord.Embed(title="All" + " :", color=15277667)
         embed.add_field(name="Good ✅", value=text['Good'], inline=True)
         embed.add_field(name="Full ❌", value=text['Full'], inline=True)
         embed.add_field(name="Busy ⛔", value=text['Busy'], inline=True)
         embed.add_field(name="Maintenance ⚠️", value=text['Maintenance'], inline=True)
-        embed.set_footer(text="Last update : " + bot.timer)
+        embed.set_footer(text="Zone status : " + bot.timer + ' (UTC)')
         embed.set_thumbnail(url="https://kgo.googleusercontent.com/profile_vrt_raw_bytes_1587514212_1078.jpg")
         await ctx.send(embed=embed)
 
 @bot.command()
 async def help(ctx):
-    embed = discord.Embed(title="Command list :", description="Bot version : v1.3", color=15277667)
+    embed = discord.Embed(title="Command list :", description="Bot version : v1.4", color=15277667)
     embed.add_field(name=".help", value="Show command list", inline=True)
     embed.add_field(name=".zones", value="Show all the zones", inline=True)
     embed.add_field(name=".zone [value]", value="Show the state of the servers of a zone", inline=True)
+    embed.add_field(name=".all", value="Show all servers status", inline=True)
     embed.add_field(name=".server [value]", value="Show server state", inline=True)
+    embed.add_field(name="Discord Server", value="https://discord.gg/YSPpwaGz3n", inline=True)
     embed.add_field(name="Server counter :", value=(str(len(bot.guilds))) + " servers.")
     embed.set_thumbnail(url="https://kgo.googleusercontent.com/profile_vrt_raw_bytes_1587514212_1078.jpg")
     await ctx.send(embed=embed)
