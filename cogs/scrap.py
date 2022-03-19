@@ -6,7 +6,7 @@ import tracemalloc
 
 tracemalloc.start()
 
-zones_array = ['NORTH AMERICA WEST', 'NORTH AMERICA EAST', 'EUROPE CENTRAL', 'SOUTH AMERICA', 'EUROPE WEST']
+zones_array = ['NORTH AMERICA WEST', 'NORTH AMERICA EAST', 'EUROPE CENTRAL', 'EUROPE WEST', 'SOUTH AMERICA']
 
 zones_arr = {}
 ts = 0

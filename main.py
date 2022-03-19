@@ -2,7 +2,6 @@ import discord
 from discord.ext import commands
 import os
 
-zones_array = ['NORTH AMERICA WEST', 'NORTH AMERICA EAST', 'EUROPE CENTRAL', 'EUROPE WEST', 'SOUTH AMERICA']
 ts = 0
 bot = commands.Bot(command_prefix='.')
 bot.remove_command('help')
