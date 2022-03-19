@@ -19,16 +19,17 @@ Lien top.gg : https://top.gg/bot/942408497595813958
 - **.zones** : Montre la liste de toutes les zones
 - **.zone [valeur]** : Montre la liste des serveurs de la zone indiquée avec leur état
 - **.serveur [valeur]** : Montres l'état du serveur
+- **.all : Listes tout les serveurs avec leur statut.**
 
 ## To-Do Liste
 - [x] Panneau d'aide
 - [x] Listes des zones
 - [x] Listes des serveurs par zone
-- [ ] Listes de tout les serveurs
+- [x] Listes de tout les serveurs
 - [x] Rafraichissement automatique
 - [x] Amélioration du design de la réponse du bot 
 - [ ] Choix de langue
-- [ ] Tri alphabétique 
+- [x] Tri alphabétique 
 
 -------------
 
@@ -53,14 +54,15 @@ Link top.gg : https://top.gg/bot/942408497595813958
 - **.zones** : Show all the zones
 - **.zone [value]** : Show the state of the servers of a zone
 - **.server [value]** : Show server state
+- **.all : List all the servers with them states**
 
 ## To-Do List
 - [x] HELP embed
 - [x] Zones list
 - [x] Servers by zone list
-- [ ] List all servers
+- [x] List all servers
 - [x] Auto refresh
 - [x] Better design
 - [ ] Choose lang
-- [ ] Enumerations by alphabetical order
+- [x] Enumerations by alphabetical order
 
